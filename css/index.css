@@ -35,19 +35,15 @@ a.new_win:link, a.new_win:visited {
 a.new_win:hover {
     text-decoration: underline;
 }
-
+.navbar-header{
+    padding: 5px;
+}
 a.navbar-brand {
-    background: #0375cb; /* Old browsers */
-    background: -moz-linear-gradient(left, #0375cb 0%, #0375cb 45%, #9903c4 45%, #9903c4 45%, #9903c4 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #0375cb), color-stop(45%, #0375cb), color-stop(45%, #9903c4), color-stop(45%, #9903c4), color-stop(100%, #9903c4)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #0375cb 0%, #0375cb 45%, #9903c4 45%, #9903c4 45%, #9903c4 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #0375cb 0%, #0375cb 45%, #9903c4 45%, #9903c4 45%, #9903c4 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #0375cb 0%, #0375cb 45%, #9903c4 45%, #9903c4 45%, #9903c4 100%); /* IE10+ */
-    background: linear-gradient(to right, #0375cb 0%, #0375cb 45%, #9903c4 45%, #9903c4 45%, #9903c4 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0375cb', endColorstr='#9903c4', GradientType=1); /* IE6-9 */
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: url(../images/sekai-anime-logo.png);
+    text-indent: -9999px;
+    background-size: contain;
+    width: 100px;
+    height: 40px;
 }
 
 /* Tables should show empty cells. */
@@ -750,6 +746,10 @@ h4.catbg, h4.catbg2, h3.catbg, h3.catbg2, .table_list tbody.header td.catbg {
     padding: 0 10px;
 }
 
+.table_list h4.catbg, .table_list h4.catbg2, .table_list h3.catbg, .table_list h3.catbg2, .table_list tbody.header td.catbg {
+    height: 30px;
+}
+
 h4.titlebg, h3.titlebg {
     /*background: url(../images/theme/main_block.png) no-repeat 100% -200px;*/
     padding: 0 10px;
@@ -1002,8 +1002,8 @@ table.table_grid thead tr.catbg th {
 /*}*/
 
 /*span.lowerframe {*/
-    /*display: block;*/
-    /*padding: 10px;*/
+/*display: block;*/
+/*padding: 10px;*/
 /*}*/
 
 /*padding: 0;*/
@@ -1468,6 +1468,11 @@ select.qaction, input.qaction {
 ------------------------------------------------------- */
 table.table_list {
     width: 100%;
+    margin-bottom: 10px;
+}
+
+table.table_list:last-of-type {
+    margin-bottom: 0;
 }
 
 table.table_list p {

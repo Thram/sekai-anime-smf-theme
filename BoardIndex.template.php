@@ -84,8 +84,7 @@ function template_main()
 	}
 
 	echo '
-	<div id="boardindex_table" class>
-		<table class="table_list">';
+	<div id="boardindex_table" class>';
 
 	/* Each category in categories is made up of:
 	id, href, link, name, is_collapsed (is it collapsed?), can_collapse (is it okay if it is?),
@@ -98,6 +97,8 @@ function template_main()
 			continue;
 
 		echo '
+
+		<table class="table_list">
 			<tbody class="header" id="category_', $category['id'], '">
 				<tr>
 					<td colspan="4">
@@ -226,14 +227,9 @@ function template_main()
 			</tbody>';
 		}
 		echo '
-			<tbody class="divider">
-				<tr>
-					<td colspan="4"></td>
-				</tr>
-			</tbody>';
+			</table>';
 	}
 	echo '
-		</table>
 	</div>';
 
 	if ($context['user']['is_logged'])
