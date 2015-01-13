@@ -35,9 +35,15 @@ a.new_win:link, a.new_win:visited {
 a.new_win:hover {
     text-decoration: underline;
 }
-.navbar-header{
+
+.navbar-header {
     padding: 5px;
 }
+
+.actions {
+    overflow: hidden;
+}
+
 a.navbar-brand {
     background: url(../images/sekai-anime-logo.png);
     text-indent: -9999px;
@@ -963,10 +969,14 @@ table.table_grid thead tr.catbg th {
 }
 
 .roundframe, .table_list, .table_grid, #forumposts, .login, #advanced_search, .flow_hidden, .sp_block_section, .sp_article_content {
-    /*border: 2px solid #0375CB;*/
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
     margin: 0 0 5px 0;
     clear: both;
+}
+
+.roundframe.info-center {
+    border: 2px solid #0375CB;
+    padding: 0;
 }
 
 .topic .roundframe {

@@ -156,7 +156,7 @@ function template_html_above() {
 
     // Output any remaining HTML headers. (from mods, maybe?)
     echo $context['html_headers'];
-    $page = $_GET['action'] ? $_GET['action'] : $_GET['board'] ? 'board' : $_GET['topic'] ? 'topic' : 'home';
+    $page = $_GET['action'] ? $_GET['action'] : ($_GET['board'] ? 'board' : ($_GET['topic'] ? 'topic' : 'home'));
     echo '
 </head>
 <body data-page="', $page, '" class="', $page, '">';
