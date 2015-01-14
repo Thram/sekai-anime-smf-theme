@@ -77,6 +77,7 @@ body, td, th, tr {
 /* This division wraps the entire forum when a forum width is set. */
 div#wrapper {
     width: 100%;
+    overflow: hidden;
 }
 
 /* lets give all forms zero padding/margins */
@@ -416,7 +417,7 @@ code.bbc_code {
     font-size: 1.1em;
     font-weight: bold;
     /*background: #e3e9ef url(../images/theme/main_block.png) no-repeat -10px -380px;*/
-    background: #9903c4;
+    background: rgba(153, 3, 196, 0.6);
 }
 
 .catbg, .catbg2, tr.catbg td, tr.catbg2 td, tr.catbg th, tr.catbg2 th {
@@ -448,6 +449,7 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
 /* Alternating backgrounds for posts, and several other sections of the forum. */
 .windowbg, #preview_body {
     color: #000;
+    overflow: hidden;
 }
 
 .topslice, .botslice {
@@ -963,15 +965,23 @@ table.table_grid thead tr.catbg th {
 
 /* Used for sections that need somewhat larger corners.
 ----------------------------------------------------------- */
-.roundframe, .table_list, .table_grid, #forumposts, .login, #advanced_search, .flow_hidden, .windowbg {
+.roundframe, .table_list, .table_grid, #forumposts, #advanced_search, .windowbg {
     padding: 5px;
     background: white;
 }
 
-.roundframe, .table_list, .table_grid, #forumposts, .login, #advanced_search, .flow_hidden, .sp_block_section, .sp_article_content {
+.help #sp_center, .tborder.login {
+    background: white;
+}
+
+.roundframe, .table_list, .table_grid, #forumposts, .tborder.login, #advanced_search, .sp_block_section_last, .sp_block_section, .sp_article_content, .help #sp_center, .registration-agreement {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
-    margin: 0 0 5px 0;
+    margin: 0 0 20px 0;
     clear: both;
+}
+
+.user-info {
+
 }
 
 .roundframe.info-center {
@@ -985,8 +995,13 @@ table.table_grid thead tr.catbg th {
 
 .flow_hidden .roundframe,
 #advanced_search .roundframe,
-.login .roundframe {
+.login .roundframe, .register .roundframe, #sp_center .sp_block_section_last {
     box-shadow: none;
+}
+
+.sp_block_section .button_submit, .sp_block_section_last .button_submit {
+    float: right;
+    margin: 5px 0;
 }
 
 .roundframe dl, .roundframe dt, .roundframe p {
@@ -1294,7 +1309,6 @@ ul#navigation li {
 /* the content section */
 #content_section {
     display: none;
-    overflow: hidden;
     padding-bottom: 20px;
 }
 
@@ -1440,7 +1454,6 @@ div#upper_section div.news form {
 /* The footer wih copyright links etc. */
 #footer_section {
     text-align: center;
-    padding-left: 20px;
 }
 
 #footer_section span.smalltext {
@@ -1449,7 +1462,6 @@ div#upper_section div.news form {
 
 #footer_section div.frame {
     display: block;
-    padding: 60px 0 0 0;
 }
 
 #footer_section ul li, #footer_section p {
@@ -2409,11 +2421,6 @@ fieldset.merge_options {
 
 /* Styles for the login areas.
 ------------------------------------------------------- */
-.login {
-    width: 540px;
-    margin: 0 auto;
-}
-
 .login dl {
     overflow: auto;
     clear: right;

@@ -17,6 +17,7 @@ function template_registration_agreement()
 
 	echo '
 		<form action="', $scripturl, '?action=register" method="post" accept-charset="', $context['character_set'], '" id="registration">
+			<div class="registration-agreement">
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['registration_agreement'], '</h3>
 			</div>
@@ -25,6 +26,7 @@ function template_registration_agreement()
 				<p>', $context['agreement'], '</p>
 			</div>
 			<span class="lowerframe"><span></span></span>
+			</div>
 			<div id="confirm_buttons">';
 
 	// Age restriction in effect?

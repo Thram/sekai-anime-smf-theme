@@ -168,7 +168,7 @@ function template_body_above() {
     // Show the menu here, according to the menu sub template.
     template_menu();
 
-    echo !empty($settings['forum_width']) ? '<div id="wrapper">' : '', '<div id="header" class="', $context['show_login_bar'] ? 'login - on' : '', '"><div class="frame">
+    echo !empty($settings['forum_width']) ? '<div id="wrapper">' : '', '<div id="header" class="', $context['show_login_bar'] ? 'login-on' : '', '"><div class="frame">
 		<a href="', $scripturl, '" id="top_section"></a>
 		<div id="upper_section" class="middletext"', empty($options['collapse_header']) ? '' : ' style="display: none;"', '>
 			<div class="user">';
@@ -198,7 +198,8 @@ function template_body_above() {
     //					<li>', $context['current_time'], '</li>
     //				</ul>';
     //    } // Otherwise they're a guest - this time ask them to either register or login - lazy bums...
-    if (!empty($context['show_login_bar'])) {
+	$page = $_GET['action'] ? $_GET['action'] : ($_GET['board'] ? 'board' : ($_GET['topic'] ? 'topic' : 'home'));
+    if (!empty($context['show_login_bar']) && $page != 'login') {
         echo '
 				<script type="text / javascript" src="', $settings['default_theme_url'], ' / scripts / sha1 . js"></script>
 				<form id="guest_form" action="', $scripturl, ' ? action = login2" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>

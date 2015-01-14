@@ -102,15 +102,12 @@ function template_portal_below() {
 
 function template_block($block) {
     global $context, $modSettings, $txt;
-    $blockClass = preg_replace("/[^0-9a-zA-Z ]/", "", strtolower($block['label']));
-    $blockClass = explode(' ', $blockClass);
-    $blockClass = implode('-', $blockClass);
 
     if (empty($block) || empty($block['type'])) return;
 
     if ($block['type'] == 'sp_boardNews') {
         echo '
-			<div class="sp_block_section', isset($context['SPortal']['sides'][$block['column']]['last']) && $context['SPortal']['sides'][$block['column']]['last'] == $block['id'] && ($block['column'] != 2 || empty($modSettings['articleactive'])) ? '_last' : '', ' ', $blockClass, '">';
+			<div class="sp_block_section', isset($context['SPortal']['sides'][$block['column']]['last']) && $context['SPortal']['sides'][$block['column']]['last'] == $block['id'] && ($block['column'] != 2 || empty($modSettings['articleactive'])) ? '_last' : '', '">';
 
         $block['type'](array_merge($block['parameters'], array('style' => $block['style'])), $block['id']);
 
@@ -128,12 +125,9 @@ function template_block($block) {
 
 function template_block_core($block) {
     global $context, $modSettings, $settings;
-    $blockClass = preg_replace("/[^0-9a-zA-Z ]/", "", strtolower($block['label']));
-    $blockClass = explode(' ', $blockClass);
-    $blockClass = implode('-', $blockClass);
 
     echo '
-			<div class="sp_block_section', isset($context['SPortal']['sides'][$block['column']]['last']) && $context['SPortal']['sides'][$block['column']]['last'] == $block['id'] && ($block['column'] != 2 || empty($modSettings['articleactive'])) ? '_last' : '', ' ', $blockClass, '">
+			<div class="sp_block_section', isset($context['SPortal']['sides'][$block['column']]['last']) && $context['SPortal']['sides'][$block['column']]['last'] == $block['id'] && ($block['column'] != 2 || empty($modSettings['articleactive'])) ? '_last' : '', '">
 				<div class="', !empty($block['style']['no_body']) ? '' : ' tborder', '">
 					<table class="sp_block">';
 
@@ -168,12 +162,8 @@ function template_block_core($block) {
 function template_block_curve($block) {
     global $context, $modSettings, $settings;
 
-    $blockClass = preg_replace("/[^0-9a-zA-Z ]/", "", strtolower($block['label']));
-    $blockClass = explode(' ', $blockClass);
-    $blockClass = implode('-', $blockClass);
-
     echo '
-	<div class="sp_block_section', isset($context['SPortal']['sides'][$block['column']]['last']) && $context['SPortal']['sides'][$block['column']]['last'] == $block['id'] && ($block['column'] != 2 || empty($modSettings['articleactive'])) ? '_last' : '', ' ', $blockClass, '">';
+	<div class="sp_block_section', isset($context['SPortal']['sides'][$block['column']]['last']) && $context['SPortal']['sides'][$block['column']]['last'] == $block['id'] && ($block['column'] != 2 || empty($modSettings['articleactive'])) ? '_last' : '', '">';
 
     if (empty($block['style']['no_title'])) {
         echo '
