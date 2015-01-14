@@ -396,7 +396,7 @@ function template_block_edit()
 				continue;
 
 			echo '
-						<a href="javascript:void(0);" onclick="sp_collapseObject(\'', $type, '\')"><img id="sp_collapse_', $type, '" src="', $settings['images_url'], '/expand.gif" alt="*" /></a> ', $txt['sp-blocksSelect' . ucfirst($type)], '
+						<a href="javascript:void(0);" onclick="sp_collapseObject(\'', $type, '\')"><img id="sp_collapse_', $type, '" class="icon" src="', $settings['images_url'], '/expand.gif" alt="*" /></a> ', $txt['sp-blocksSelect' . ucfirst($type)], '
 						<ul id="sp_object_', $type, '" class="reset sp_display_list" style="display: none;">';
 
 			foreach ($context['display_' . $type] as $index => $action)

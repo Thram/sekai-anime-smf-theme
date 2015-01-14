@@ -69,12 +69,38 @@ var Thram = (function () {
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
                 break;
+            case 'board':
+                elements = mainSection.find('.pagesection, .table_grid,  #topic_icons');
+                _animateSequence(elements, 'fadeInUp', delay, duration);
+                totalAnimations = elements.length;
+                break;
             default :
-                elements = mainSection.find('.table_list, .actions, .info-center');
+                elements = mainSection.find('.pagesection, .table_list, .actions, .info-center, .navigate_section');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
         }
         _animateElement($('#footer_section'), 'fadeInUp', delay * totalAnimations, duration);
+
+
+        var loginForm = $('#guest_form');
+
+        function _closeLoginForm(e) {
+            if (!loginForm.is(e.target) // if the target of the click isn't the container...
+                && loginForm.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+                loginForm.removeClass('show');
+                $('#login-tab').removeClass('show');
+                $(document).off('mouseup', _closeLoginForm)
+            }
+        }
+
+        $('#login-tab').click(function () {
+            $(this).addClass('show');
+            loginForm.addClass('show');
+            $(document).on('mouseup', _closeLoginForm);
+        });
+
+
     }
 
     function setSelect(id, val, label) {

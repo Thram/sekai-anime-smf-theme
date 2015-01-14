@@ -167,42 +167,12 @@ function template_body_above() {
 
     // Show the menu here, according to the menu sub template.
     template_menu();
-
-    echo !empty($settings['forum_width']) ? '<div id="wrapper">' : '', '<div id="header" class="', $context['show_login_bar'] ? 'login-on' : '', '"><div class="frame">
-		<a href="', $scripturl, '" id="top_section"></a>
-		<div id="upper_section" class="middletext"', empty($options['collapse_header']) ? '' : ' style="display: none;"', '>
-			<div class="user">';
-
-    // If the user is logged in, display stuff like their name, new messages, etc.
-    //    if ($context['user']['is_logged']) {
-    //        if (!empty($context['user']['avatar'])) echo '
-    //				<p class="avatar">', $context['user']['avatar']['image'], '</p>';
-    //        echo '
-    //				<ul class="reset">
-    //					<li class="greeting">', $txt['hello_member_ndt'], ' <span>', $context['user']['name'], '</span></li>
-    //					<li><a href="', $scripturl, ' ? action = unread">', $txt['unread_since_visit'], '</a></li>
-    //					<li><a href="', $scripturl, ' ? action = unreadreplies">', $txt['show_unread_replies'], '</a></li>';
-    //
-    //        // Is the forum in maintenance mode?
-    //        if ($context['in_maintenance'] && $context['user']['is_admin']) echo '
-    //					<li class="notice">', $txt['maintain_mode_on'], '</li>';
-    //
-    //        // Are there any members waiting for approval?
-    //        if (!empty($context['unapproved_members'])) echo '
-    //					<li>', $context['unapproved_members'] == 1 ? $txt['approve_thereis'] : $txt['approve_thereare'], ' <a href="', $scripturl, ' ? action = admin;area = viewmembers;sa = browse;type = approve">', $context['unapproved_members'] == 1 ? $txt['approve_member'] : $context['unapproved_members'] . ' ' . $txt['approve_members'], '</a> ', $txt['approve_members_waiting'], '</li>';
-    //
-    //        if (!empty($context['open_mod_reports']) && $context['show_open_reports']) echo '
-    //					<li><a href="', $scripturl, ' ? action = moderate;area = reports">', sprintf($txt['mod_reports_waiting'], $context['open_mod_reports']), '</a></li>';
-    //
-    //        echo '
-    //					<li>', $context['current_time'], '</li>
-    //				</ul>';
-    //    } // Otherwise they're a guest - this time ask them to either register or login - lazy bums...
-	$page = $_GET['action'] ? $_GET['action'] : ($_GET['board'] ? 'board' : ($_GET['topic'] ? 'topic' : 'home'));
+    $page = $_GET['action'] ? $_GET['action'] : ($_GET['board'] ? 'board' : ($_GET['topic'] ? 'topic' : 'home'));
     if (!empty($context['show_login_bar']) && $page != 'login') {
         echo '
 				<script type="text / javascript" src="', $settings['default_theme_url'], ' / scripts / sha1 . js"></script>
-				<form id="guest_form" action="', $scripturl, ' ? action = login2" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
+ 				<a id="login-tab" class="slide-panel-tab">', $txt['login'], '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+				<form id="guest_form" class="slide-panel" action="', $scripturl, ' ? action = login2" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
 					<div class="info">', sprintf($txt['welcome_guest'], $txt['guest_title']), '</div>
 					<input type="text" name="user" size="10" class="input_text" />
 					<input type="password" name="passwrd" size="10" class="input_password" />
@@ -236,10 +206,15 @@ function template_body_above() {
 				</form>';
     }
 
+    echo !empty($settings['forum_width']) ? '<div id="wrapper">' : '', '<div id="header" class="', $context['show_login_bar'] ? 'login-on' : '', '"><div class="frame">
+		<a href="', $scripturl, '" id="top_section"></a>
+		<div id="upper_section" class="middletext container-fluid"', empty($options['collapse_header']) ? '' : ' style="display: none;"', '>';
+
+    // Show the navigation tree.
+    theme_linktree();
     echo '
-			</div>
-			<div class="news normaltext">
-				<a href="https://www.facebook.com/pages/Sekai-Anime-Argentina/70737919050" title="Likeanos en Facebook :D" class="socicon socicon-facebook col-lg-1 pull-left">b</a>
+			<div class="news normaltext col-md-4 col-xs-12">
+				<a href="https://www.facebook.com/pages/Sekai-Anime-Argentina/70737919050" title="Likeanos en Facebook :D" class="socicon socicon-facebook pull-left">b</a>
 				<form id="search_form" class="col-lg-11 pull-right" action="', $scripturl, '?action=search2" method="post" accept-charset="', $context['character_set'], '">
 					<div class="input-group">
 					  <input type="text" name="search" value="" placeholder="', $txt['search'], '..." class="form-control" placeholder="Search for...">
@@ -308,8 +283,6 @@ function template_body_above() {
 
     // Custom banners and shoutboxes should be placed here, before the linktree.
 
-    // Show the navigation tree.
-    theme_linktree();
 }
 
 function template_body_below() {
@@ -353,7 +326,7 @@ function theme_linktree($force_show = false) {
     if (empty($context['linktree']) || (!empty($context['dont_default_linktree']) && !$force_show)) return;
 
     echo '
-	<div class="navigate_section">
+	<div class="navigate_section col-md-8 col-xs-12">
 		<ul>';
 
     // Each tree item has a URL and name. Some may have extra_before and extra_after.

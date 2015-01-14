@@ -446,6 +446,78 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
     font-size: 0.85em;
 }
 
+#guest_form {
+    overflow: visible;
+}
+
+#guest_form .info {
+    padding: 4px 0;
+    line-height: 1.3em;
+}
+
+#guest_form .info a {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 2px 5px;
+}
+
+#guest_form .info a:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.slide-panel, .slide-panel-tab {
+    position: fixed;
+    right: 0;
+    background: rgba(153, 3, 196, 0.6);
+    padding: 10px;
+    -webkit-transition: top 0.2s ease-in-out;
+    -moz-transition: top 0.2s ease-in-out;
+    -o-transition: top 0.2s ease-in-out;
+    transition: top 0.2s ease-in-out;
+    outline: 0;
+}
+
+.slide-panel {
+    display: none;
+    z-index: 999;
+    width: 400px;
+    height: 96px;
+    top: -46px;
+    color: white;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
+}
+
+.slide-panel-tab {
+    top: 0;
+    z-index: 2001;
+    height: 50px;
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.slide-panel-tab:hover {
+    color: #ffffff;
+    background: rgba(153, 3, 196, 0.8);
+    text-decoration: none;
+}
+
+.slide-panel-tab span {
+    margin-left: 5px;
+}
+
+.slide-panel.show {
+    display: block;
+    top: 50px;
+}
+
+.slide-panel-tab.show {
+}
+
 /* Alternating backgrounds for posts, and several other sections of the forum. */
 .windowbg, #preview_body {
     color: #000;
@@ -739,11 +811,6 @@ h3.titlebg a:hover, h4.titlebg a:hover {
     text-decoration: none;
 }
 
-h3.catbg img.icon, h4.titlebg img.icon {
-    vertical-align: middle;
-    margin: -2px 5px 0 0;
-}
-
 h4.catbg a.toggle img {
     vertical-align: middle;
     margin: -2px 5px 0 5px;
@@ -761,11 +828,6 @@ h4.catbg, h4.catbg2, h3.catbg, h3.catbg2, .table_list tbody.header td.catbg {
 h4.titlebg, h3.titlebg {
     /*background: url(../images/theme/main_block.png) no-repeat 100% -200px;*/
     padding: 0 10px;
-}
-
-h4.titlebg img.icon {
-    float: left;
-    margin: 5px 8px 0 0;
 }
 
 div.cat_bar {
@@ -807,7 +869,6 @@ div.title_barIC h4.titlebg {
 
 img#upshrink_ic, img#newsupshrink {
     float: right;
-    margin: 10px 5px 0 0;
 }
 
 table.table_list a.unreadlink, table.table_list a.collapse {
@@ -860,8 +921,8 @@ table.table_grid {
     margin-top: 0.1em;
 }
 
-table.table_grid td {
-    padding: 3px;
+table td {
+    padding: 5px;
 }
 
 /* GenericList */
@@ -1365,7 +1426,6 @@ img#smflogo {
 }
 
 #upper_section div.news {
-    width: 30%;
     float: right;
     text-align: right;
     margin: 5px 0px;
@@ -1373,15 +1433,6 @@ img#smflogo {
 
 .login-on #upper_section div.news {
     margin: 19px 0px;
-}
-
-#guest_form {
-    overflow: visible;
-}
-
-#guest_form .info {
-    padding: 4px 0;
-    line-height: 1.3em;
 }
 
 div#upper_section div.user {
@@ -1427,8 +1478,10 @@ div#upper_section div.news form {
 
 /* The navigation list (i.e. linktree) */
 .navigate_section {
-    padding: 0.5em;
     margin: 0 0 0 0;
+    display: inline-block;
+    float: left;
+    z-index: 999;
 }
 
 .navigate_section ul {
@@ -1921,15 +1974,6 @@ p#whoisviewing {
 .poster li.warning a img {
     vertical-align: bottom;
     padding: 0 0.2em;
-}
-
-.messageicon {
-    float: left;
-    margin: 0 0.5em 0 0;
-}
-
-.messageicon img {
-    padding: 6px 3px;
 }
 
 .keyinfo {
@@ -2545,6 +2589,10 @@ tr.titlebg td {
 /* Custom profile fields like to play with us some times. */
 #admin_content .custom_field {
     margin-bottom: 15px;
+}
+#admin_login{
+    width: 50%;
+    margin: auto;
 }
 
 #admin_login .centertext {
@@ -3475,6 +3523,54 @@ span.hidelink {
     font-weight: normal;
     font-style: normal;
     text-transform: initial;
+}
+
+img.icon, .sp_article_icon img, .sp_recent_icon img, .messageicon img, .icon1 img, .icon2 img, #topic_icons img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.sp_recent_icon {
+    padding: 0 5px;
+}
+
+#topic_icons {
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
+}
+
+.buttonlist a, .button_submit, .button_reset {
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
+}
+
+.buttonlist a:active, .button_submit:active, .button_reset:active {
+    position: relative;
+    top: 2px;
+    left: 2px;
+    box-shadow: none;
+}
+
+#topic_icons img {
+    margin-bottom: 5px;
+}
+
+.sp_recent_icon img, .messageicon img, .icon1 img, .icon2 img, #topic_icons img {
+    width: 40px;
+    height: 40px;
+    background: rgba(153, 3, 196, 0.6);
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
+}
+
+#topic_icons .navigate_section {
+    width: 100%;
+}
+
+#topic_icons {
+
+}
+
+.messageicon, .sp_recent_icon, .icon1, .icon2 {
+
 }
 
 .socicon {

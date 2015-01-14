@@ -132,7 +132,7 @@ function template_main() {
 		<fieldset class="flow_hidden">
 			<div class="title_bar">
 				<h4 class="titlebg">
-					<a href="javascript:void(0);" onclick="expandCollapseBoards(); return false;"><img src="', $settings['images_url'], '/expand.gif" id="expandBoardsIcon" alt="" /></a> <a href="javascript:void(0);" onclick="expandCollapseBoards(); return false;"><strong>', $txt['choose_board'], '</strong></a>
+					<a href="javascript:void(0);" onclick="expandCollapseBoards(); return false;"><img class="icon" src="', $settings['images_url'], '/expand.gif" id="expandBoardsIcon" alt="" /></a> <a href="javascript:void(0);" onclick="expandCollapseBoards(); return false;"><strong>', $txt['choose_board'], '</strong></a>
 				</h4>
 			</div>
 			<span class="upperframe"><span></span></span>
