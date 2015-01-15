@@ -2,7 +2,7 @@
  * Created by thram on 12/01/15.
  */
 var Thram = (function () {
-    var page = 'home';
+    var page = 'home', $mainSection, $body;
 
     function _animateElement(element, animateClass, delay, duration) {
         element.addClass('animated').addClass(animateClass).css({
@@ -28,22 +28,17 @@ var Thram = (function () {
         });
     }
 
-    function init() {
-        var $body = $('body'), mainSection = $('#content_section');
-
-        $body.scrollTop(0);
+    function _applyPageAnimation() {
         page = $body.data('page');
-        //$('.table_grid, .table_list').addClass('animated delayed fadeIn');
-        mainSection.show();
         var totalAnimations = 0;
         var elements = undefined;
         var delay = 300;
         var duration = 400;
         switch (page) {
             case 'home':
-                var leftElements = mainSection.find('#sp_left .sp_block_section, #sp_left .sp_block_section_last');
-                var centerElements = mainSection.find('#sp_center .sp_block_section, #sp_center .sp_article_content, #sp_center .sp_page_index');
-                var rightElements = mainSection.find('#sp_right .sp_block_section, #sp_right .sp_block_section_last');
+                var leftElements = $mainSection.find('#sp_left .sp_block_section, #sp_left .sp_block_section_last');
+                var centerElements = $mainSection.find('#sp_center .sp_block_section, #sp_center .sp_article_content, #sp_center .sp_page_index');
+                var rightElements = $mainSection.find('#sp_right .sp_block_section, #sp_right .sp_block_section_last');
                 _animateSequence(leftElements, 'fadeInUp', delay, duration);
                 _animateSequence(centerElements, 'fadeInUp', delay, duration);
                 _animateSequence(rightElements, 'fadeInUp', delay, duration);
@@ -55,33 +50,34 @@ var Thram = (function () {
                 totalAnimations = elements.length;
                 break;
             case 'search':
-                elements = mainSection.find('fieldset');
+                elements = $mainSection.find('fieldset');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
                 break;
             case 'login':
-                elements = mainSection.find('#sp_main');
+                elements = $mainSection.find('#sp_main');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
                 break;
             case 'register':
-                elements = mainSection.find('.registration-agreement, #confirm_buttons');
+                elements = $mainSection.find('.registration-agreement, #confirm_buttons');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
                 break;
             case 'board':
-                elements = mainSection.find('.pagesection, .table_grid,  #topic_icons');
+                elements = $mainSection.find('.pagesection, .table_grid,  #topic_icons, #forumposts, #sp_main .navigate_section, .plainbox');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
                 break;
             default :
-                elements = mainSection.find('.pagesection, .table_list, .actions, .info-center, .navigate_section');
+                elements = $mainSection.find('.pagesection, .table_list, .actions, .info-center, .navigate_section');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
         }
         _animateElement($('#footer_section'), 'fadeInUp', delay * totalAnimations, duration);
+    }
 
-
+    function _initLoginForm() {
         var loginForm = $('#guest_form');
 
         function _closeLoginForm(e) {
@@ -99,8 +95,20 @@ var Thram = (function () {
             loginForm.addClass('show');
             $(document).on('mouseup', _closeLoginForm);
         });
+    }
 
+    function _initInputs() {
+        $('input:not(:checkbox):not(:button):not(:submit):not(:radio)').addClass('form-control input-sm');
+    }
 
+    function init() {
+        $body = $('body');
+        $body.scrollTop(0);
+        $mainSection = $('#content_section');
+        $mainSection.show();
+        _applyPageAnimation();
+        _initLoginForm();
+        _initInputs();
     }
 
     function setSelect(id, val, label) {

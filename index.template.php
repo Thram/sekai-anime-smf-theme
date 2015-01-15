@@ -172,29 +172,18 @@ function template_body_above() {
         echo '
 				<script type="text / javascript" src="', $settings['default_theme_url'], ' / scripts / sha1 . js"></script>
  				<a id="login-tab" class="slide-panel-tab">', $txt['login'], '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
-				<form id="guest_form" class="slide-panel" action="', $scripturl, ' ? action = login2" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
+				<form id="guest_form" class="slide-panel form-inline" action="', $scripturl, ' ? action = login2" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
 					<div class="info">', sprintf($txt['welcome_guest'], $txt['guest_title']), '</div>
-					<input type="text" name="user" size="10" class="input_text" />
-					<input type="password" name="passwrd" size="10" class="input_password" />
-					<select id="cookielength" name="cookielength" style="display: none;">
+					<input type="text" name="user" size="10" class="input_text" placeholder="Nick"/>
+					<input type="password" name="passwrd" size="10" class="input_password" placeholder="****" />
+					<select id="cookielength" name="cookielength">
 						<option value="60">', $txt['one_hour'], '</option>
 						<option value="1440">', $txt['one_day'], '</option>
 						<option value="10080">', $txt['one_week'], '</option>
 						<option value="43200">', $txt['one_month'], '</option>
 						<option value="-1" selected="selected">', $txt['forever'], '</option>
 					</select>
-					<div class="btn-group">
-					  <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-						<span id="cookielength-value">', $txt['forever'], '</span> <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu" role="menu">
-						<li onclick="Thram.setSelect(\'#cookielength\', 60, $(this).text())">', $txt['one_hour'], '</li>
-						<li onclick="Thram.setSelect(\'#cookielength\', 1440, $(this).text())">', $txt['one_day'], '</li>
-						<li onclick="Thram.setSelect(\'#cookielength\', 10080, $(this).text())">', $txt['one_week'], '</li>
-						<li onclick="Thram.setSelect(\'#cookielength\', 43200, $(this).text())">', $txt['one_month'], '</li>
-						<li onclick="Thram.setSelect(\'#cookielength\', -1, $(this).text())">', $txt['forever'], '</li>
-					  </ul>
-					</div>
+
 					<input type="submit" value="', $txt['login'], '" class="btn btn-primary btn-xs" /><br />
 					<div class="info">', $txt['quick_login_dec'], '</div>';
 
@@ -219,7 +208,7 @@ function template_body_above() {
 					<div class="input-group">
 					  <input type="text" name="search" value="" placeholder="', $txt['search'], '..." class="form-control" placeholder="Search for...">
 					  <span class="input-group-btn">
-						<button class="btn btn-default" type="submit"><span style="padding: 3px 0;" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						<button class="btn btn-sm btn-default" type="submit"><span style="padding: 3px 0;" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 					  </span>
 					</div>
 					<input type="hidden" name="advanced" value="0" />';

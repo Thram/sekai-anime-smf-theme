@@ -10,6 +10,10 @@ html, body {
     display: block;
 }
 
+.sp_block_section, .sp_block_section_last {
+    position: relative;
+}
+
 /* Normal, standard links. */
 a:link, a:visited {
     color: #346;
@@ -41,7 +45,6 @@ a.new_win:hover {
 }
 
 .actions {
-    overflow: hidden;
 }
 
 a.navbar-brand {
@@ -77,7 +80,6 @@ body, td, th, tr {
 /* This division wraps the entire forum when a forum width is set. */
 div#wrapper {
     width: 100%;
-    overflow: hidden;
 }
 
 /* lets give all forms zero padding/margins */
@@ -104,12 +106,23 @@ input, button, select, textarea {
 
 /* Select elements look horrible with the extra padding, so leave them unpadded. */
 select {
-    padding: 0;
-}
+    background: url(../images/icons/caret.gif) no-repeat right #fff;
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    color: #333;
+    display: inline-block;
+    fill: #000;
+    fill-opacity: 1;
+    margin: 0;
+    object-position: 50% 50%;
+    outline-offset: 0;
+    outline: #333 none 0;
+    overflow: visible;
+    padding: 2px 22px 2px 5px;
+    position: relative;
+    text-align: right;
+    -webkit-appearance: none;
 
-/* Add some padding to the options instead. */
-select option {
-    padding: 1px;
 }
 
 /* The font size of textareas should be just a little bit larger. */
@@ -215,7 +228,6 @@ em {
 }
 
 .flow_hidden {
-    /*overflow: hidden;*/
 }
 
 .flow_hidden .windowbg, .flow_hidden .windowbg2 {
@@ -237,7 +249,7 @@ em {
 /* Default font sizes: small (8pt), normal (10pt), and large (14pt). */
 .smalltext, tr.smalltext th {
     font-size: 0.85em;
-    /*font-family: verdana, sans-serif;*/
+    margin: 0;
 }
 
 .middletext {
@@ -496,7 +508,6 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
     line-height: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
-    overflow: hidden;
     color: #ffffff;
 }
 
@@ -530,20 +541,21 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
 
 .windowbg2 {
     color: #000;
-    /*background-color: #f0f4f7;*/
+    overflow: hidden;
+    background-color: #fff;
 }
 
 .windowbg3 {
     color: #000;
-    background-color: #cacdd3;
+    background-color: #fff;
+    overflow: hidden;
+
 }
 
 /* the page navigation area */
 .pagesection {
     font-size: 0.9em;
-    overflow: hidden;
-    margin-bottom: 1px;
-    padding: 20px 10px 10px 0;
+    margin: 10px 0;
 }
 
 div.pagesection div.floatright input {
@@ -668,11 +680,13 @@ a.moderation_link, a.moderation_link:visited {
 
 /* a descriptive style */
 .description, .description_board, .plainbox {
-    padding: 0.5em 1em;
+    padding: 1em;
     font-size: 0.9em;
     line-height: 1.4em;
-    background: #f5f5f0;
+    background: rgba(153, 3, 196, 0.6);
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
     margin: 0.2em 1px 1em 1px;
+    color: #fff;
 }
 
 .description_board {
@@ -777,7 +791,6 @@ dl.settings dt a img {
 /* Styles for rounded headers.
 ------------------------------------------------------- */
 h3.catbg, h3.catbg2, h3.titlebg, h4.titlebg, h4.catbg {
-    overflow: hidden;
     height: 31px;
     line-height: 31px;
     font-size: 1.2em;
@@ -832,12 +845,10 @@ h4.titlebg, h3.titlebg {
 
 div.cat_bar {
     height: 31px;
-    overflow: hidden;
 }
 
 div.title_bar {
     height: 31px;
-    overflow: hidden;
     margin-bottom: 1px;
 }
 
@@ -854,7 +865,6 @@ div.roundframe div.cat_bar h3.catbg {
 
 div.title_barIC {
     height: 31px;
-    overflow: hidden;
     margin-bottom: 1px;
 }
 
@@ -1026,7 +1036,7 @@ table.table_grid thead tr.catbg th {
 
 /* Used for sections that need somewhat larger corners.
 ----------------------------------------------------------- */
-.roundframe, .table_list, .table_grid, #forumposts, #advanced_search, .windowbg {
+.roundframe, .table_list, .table_grid, #advanced_search, .windowbg {
     padding: 5px;
     background: white;
 }
@@ -1035,9 +1045,14 @@ table.table_grid thead tr.catbg th {
     background: white;
 }
 
-.roundframe, .table_list, .table_grid, #forumposts, .tborder.login, #advanced_search, .sp_block_section_last, .sp_block_section, .sp_article_content, .help #sp_center, .registration-agreement {
+.roundframe, .table_list, .table_grid, .tborder.login, #advanced_search, .sp_block_section_last, .sp_block_section, .sp_article_content, .help #sp_center, .registration-agreement {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
     margin: 0 0 20px 0;
+    clear: both;
+}
+
+#forumposts {
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
     clear: both;
 }
 
@@ -1357,7 +1372,6 @@ ul#navigation li {
 
 #adm_submenus {
     padding-left: 2em;
-    overflow: hidden;
 }
 
 /* Styles for the general looks for the Curve theme.
@@ -1400,6 +1414,21 @@ h3, h4 {
     padding-bottom: 3px;
 }
 
+.tborder.login .roundframe p {
+    text-align: right;
+}
+
+.tborder.login .roundframe {
+    padding-right: 320px;
+    padding-bottom: 0;
+    background: url("../images/back_login.png") no-repeat right bottom;
+}
+
+.tborder.login {
+    width: 60%;
+    margin: auto;
+}
+
 /* the upshrink image needs some tweaking */
 img#upshrink {
     float: right;
@@ -1416,7 +1445,6 @@ img#smflogo {
     display: inline-block;
     width: 100%;
     overflow: visible;
-    padding: 10px;
 }
 
 #upper_section ul li.greeting {
@@ -1432,7 +1460,7 @@ img#smflogo {
 }
 
 .login-on #upper_section div.news {
-    margin: 19px 0px;
+    margin-top: 10px;
 }
 
 div#upper_section div.user {
@@ -1469,7 +1497,6 @@ div#upper_section div.news form {
 #top_section {
     display: block;
     height: 180px;
-    overflow: hidden;
     width: 100%;
 
     background: url(../images/banner.jpg) no-repeat center center;
@@ -1478,10 +1505,16 @@ div#upper_section div.news form {
 
 /* The navigation list (i.e. linktree) */
 .navigate_section {
-    margin: 0 0 0 0;
+    margin: 10px 0;
     display: inline-block;
     float: left;
     z-index: 999;
+    font-size: 12px;
+    padding-left: 28px;
+}
+
+#sp_main .navigate_section {
+    padding-left: 0;
 }
 
 .navigate_section ul {
@@ -1489,7 +1522,6 @@ div#upper_section div.news form {
     margin: 0;
     font-size: 0.9em;
     padding: 1em 0 0.5em 0;
-    overflow: hidden;
     list-style: none;
     clear: both;
 }
@@ -1627,14 +1659,10 @@ p.moderators {
     padding: 0 0 0 6px;
 }
 
-.nextlinks {
+.nextlinks, .nextlinks_bottom {
     text-align: right;
-    margin-top: -1px;
-}
-
-.nextlinks_bottom {
-    clear: right;
-    text-align: right;
+    display: inline-block;
+    margin-left: 5px;
 }
 
 .mark_read {
@@ -1796,7 +1824,6 @@ div.table_frame .table_list {
 }
 
 #moderationbuttons {
-    overflow: hidden;
 }
 
 /* Events */
@@ -1811,7 +1838,6 @@ div.table_frame .table_list {
 
 /* Poll question */
 #poll {
-    overflow: hidden;
 }
 
 #poll .content {
@@ -1883,11 +1909,6 @@ div#pollmoderation {
 /* onto the posts */
 #forumposts {
     clear: both;
-    overflow: hidden;
-}
-
-#forumposts .cat_bar {
-    margin: 0 0 2px 0;
 }
 
 /* author and topic information */
@@ -1897,7 +1918,6 @@ div#pollmoderation {
 
 #forumposts h3 img {
     float: left;
-    margin: 4px 0.5em 0 0;
 }
 
 #forumposts h3.catbg {
@@ -1963,7 +1983,6 @@ p#whoisviewing {
 }
 
 .poster li.avatar {
-    overflow: hidden;
 }
 
 .poster li.warning {
@@ -1974,11 +1993,6 @@ p#whoisviewing {
 .poster li.warning a img {
     vertical-align: bottom;
     padding: 0 0.2em;
-}
-
-.keyinfo {
-    float: left;
-    width: 50%;
 }
 
 .modifybutton {
@@ -2148,7 +2162,6 @@ form#postmodify .roundframe {
 
 #post_header, .postbox {
     padding: 0.5em;
-    overflow: hidden;
 }
 
 #post_header dt, .postbox dt {
@@ -2174,7 +2187,6 @@ ul.post_options {
     margin: 0 0 0 1em;
     padding: 0;
     list-style: none;
-    overflow: hidden;
 }
 
 ul.post_options li {
@@ -2192,7 +2204,6 @@ ul.post_options li {
 }
 
 #postAttachment, #postAttachment2 {
-    overflow: hidden;
     margin: .5em 0;
     padding: 0;
     padding: 0.5em;
@@ -2273,7 +2284,6 @@ ul.post_options li {
 
 #post_event ul.event_main, ul.event_options {
     padding: 0;
-    overflow: hidden;
 }
 
 #post_event ul.event_main li {
@@ -2302,13 +2312,11 @@ ul.post_options li {
 ---------------------------------------------------- */
 
 #edit_poll {
-    overflow: hidden;
 }
 
 #edit_poll fieldset {
     padding: 0.5em;
     clear: both;
-    overflow: hidden;
 }
 
 #edit_poll fieldset input {
@@ -2324,7 +2332,6 @@ ul.post_options li {
 }
 
 #edit_poll ul.poll_main, dl.poll_options {
-    overflow: hidden;
     padding: 0 0 .7em .7em;
     list-style: none;
 }
@@ -2590,9 +2597,15 @@ tr.titlebg td {
 #admin_content .custom_field {
     margin-bottom: 15px;
 }
-#admin_login{
+
+#admin_login {
     width: 50%;
     margin: auto;
+}
+
+.sp_list {
+    list-style: none;
+    padding: 0;
 }
 
 #admin_login .centertext {
@@ -2638,7 +2651,6 @@ tr.titlebg td {
     position: relative;
     left: 0;
     right: 0;
-    overflow: hidden;
 }
 
 tr.windowbg td, tr.windowbg2 td, tr.approvebg td, tr.highlight2 td {
@@ -2774,7 +2786,6 @@ dl {
     font-weight: 100;
     line-height: 105%;
     white-space: pre-wrap;
-    overflow: hidden;
 }
 
 #basicinfo h4 span.position {
@@ -3180,7 +3191,6 @@ div#profile_success {
 
 dl.stats {
     clear: both;
-    overflow: hidden;
     margin: 0;
     padding: 0;
 }
@@ -3442,7 +3452,6 @@ span.hidelink {
     margin: 0 auto;
     width: 600px;
     padding-top: 1em;
-    overflow: hidden;
 }
 
 #advanced_search dt {
@@ -3472,7 +3481,6 @@ span.hidelink {
 }
 
 .search_results_posts {
-    overflow: hidden;
 }
 
 .search_results_posts .buttons {
@@ -3525,7 +3533,7 @@ span.hidelink {
     text-transform: initial;
 }
 
-img.icon, .sp_article_icon img, .sp_recent_icon img, .messageicon img, .icon1 img, .icon2 img, #topic_icons img {
+img.icon, .sp_article_icon img, .sp_recent_icon img, .messageicon img, .icon1 img, .icon2 img, #topic_icons img, #forumposts h3 img {
     width: 30px;
     height: 30px;
     margin-right: 5px;
@@ -3561,16 +3569,36 @@ img.icon, .sp_article_icon img, .sp_recent_icon img, .messageicon img, .icon1 im
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
 }
 
+.keyinfo {
+    background: #d0d0d0;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .3);
+}
+
+.keyinfo .smalltext {
+    padding-bottom: 5px;
+}
+
+.keyinfo .messageicon img {
+    background: none;
+    box-shadow: none;
+}
+
+.keyinfo h5 {
+    padding-top: 10px;
+}
+
 #topic_icons .navigate_section {
     width: 100%;
 }
 
 #topic_icons {
+    clear: both;
 
 }
 
 .messageicon, .sp_recent_icon, .icon1, .icon2 {
-
+    display: inline-block;
+    float: left;
 }
 
 .socicon {

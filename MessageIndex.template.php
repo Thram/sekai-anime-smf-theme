@@ -321,11 +321,10 @@ function template_main() {
     }
 
     // Show breadcrumbs at the bottom too.
-
-    echo '
-	<div class="tborder" id="topic_icons">';
     theme_linktree();
-    echo '<div class="description">
+    echo '
+	<div class="tborder" id="topic_icons">
+		<div class="description">
 			<p class="floatright" id="message_index_jump_to">&nbsp;</p>';
 
     if (!$context['no_topic_listing']) echo '
