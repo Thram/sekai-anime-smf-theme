@@ -35,6 +35,17 @@
 	http://www.simplemachines.org/
 */
 
+function template_main_above() {
+    template_html_above();
+    template_body_above();
+}
+
+
+function template_main_below() {
+	template_body_below();
+    template_html_below();
+}
+
 // Initialize the template... mainly little settings.
 function template_init() {
     global $context, $settings, $options, $txt;
