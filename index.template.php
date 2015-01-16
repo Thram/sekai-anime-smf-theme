@@ -315,7 +315,7 @@ function theme_linktree($force_show = false) {
     if (empty($context['linktree']) || (!empty($context['dont_default_linktree']) && !$force_show)) return;
 
     echo '
-	<div class="navigate_section col-md-8 col-xs-12">
+	<div class="navigate_section col-md-7 col-xs-12">
 		<ul>';
 
     // Each tree item has a URL and name. Some may have extra_before and extra_after.

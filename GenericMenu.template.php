@@ -18,7 +18,7 @@ function template_generic_menu_sidebar_above()
 	// This is the main table - we need it so we can keep the content to the right of it.
 	echo '
 	<div id="main_container">
-		<div id="left_admsection"><span id="admin_menu"></span>';
+		<div id="left_admsection" class="col-lg-2"><span id="admin_menu"></span>';
 
 	// What one are we rendering?
 	$context['cur_menu_id'] = isset($context['cur_menu_id']) ? $context['cur_menu_id'] + 1 : 1;
@@ -89,7 +89,7 @@ function template_generic_menu_sidebar_above()
 	// This is where the actual "main content" area for the admin section starts.
 	echo '
 		</div>
-		<div id="main_admsection">';
+		<div id="main_admsection" class="col-lg-10">';
 
 	// If there are any "tabs" setup, this is the place to shown them.
 	if (!empty($context['tabs']) && empty($context['force_disable_tabs']))

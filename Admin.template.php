@@ -23,9 +23,8 @@ function template_admin()
 
 	if ($context['user']['is_admin'])
 		echo '
-			<object id="quick_search">
+			<div id="quick_search">
 				<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="floatright">
-					<img src="', $settings['images_url'] , '/filter.gif" alt="" />
 					<input type="text" name="search_term" value="', $txt['admin_search'], '" onclick="if (this.value == \'', $txt['admin_search'], '\') this.value = \'\';" class="input_text" />
 					<select name="search_type">
 						<option value="internal"', (empty($context['admin_preferences']['sb']) || $context['admin_preferences']['sb'] == 'internal' ? ' selected="selected"' : ''), '>', $txt['admin_search_type_internal'], '</option>
@@ -34,7 +33,7 @@ function template_admin()
 					</select>
 					<input type="submit" name="search_go" id="search_go" value="', $txt['admin_search_go'], '" class="button_submit" />
 				</form>
-			</object>';
+			</div>';
 
 	echo $txt['admin_center'], '
 			</h3>

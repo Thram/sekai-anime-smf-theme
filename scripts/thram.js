@@ -65,7 +65,12 @@ var Thram = (function () {
                 totalAnimations = elements.length;
                 break;
             case 'board':
-                elements = $mainSection.find('.pagesection, .table_grid,  #topic_icons, #forumposts, #sp_main .navigate_section, .plainbox');
+                elements = $mainSection.find('.pagesection, .table_grid,  #topic_icons, #forumposts, #sp_main .navigate_section, #moderationbuttons, .plainbox');
+                _animateSequence(elements, 'fadeInUp', delay, duration);
+                totalAnimations = elements.length;
+                break;
+            case 'post':
+                elements = $mainSection.find('.pagesection, #sp_main form, .navigate_section, .plainbox');
                 _animateSequence(elements, 'fadeInUp', delay, duration);
                 totalAnimations = elements.length;
                 break;

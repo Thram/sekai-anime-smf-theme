@@ -228,6 +228,7 @@ em {
 }
 
 .flow_hidden {
+    position: relative;
 }
 
 .flow_hidden .windowbg, .flow_hidden .windowbg2 {
@@ -556,8 +557,11 @@ tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:v
 .pagesection {
     font-size: 0.9em;
     margin: 10px 0;
+    display: inline-block;
+    width: 100%;
 }
 
+#post_header
 div.pagesection div.floatright input {
     margin-top: 3px;
 }
@@ -1306,7 +1310,7 @@ table.table_grid thead tr.catbg th {
     margin: 0;
     padding: 0;
     list-style: none;
-    float: left;
+    float: right;
 }
 
 .buttonlist ul li a {
@@ -1456,7 +1460,7 @@ img#smflogo {
 #upper_section div.news {
     float: right;
     text-align: right;
-    margin: 5px 0px;
+    margin: 10px 0px;
 }
 
 .login-on #upper_section div.news {
@@ -1520,7 +1524,6 @@ div#upper_section div.news form {
 .navigate_section ul {
     display: block;
     margin: 0;
-    font-size: 0.9em;
     padding: 1em 0 0.5em 0;
     list-style: none;
     clear: both;
@@ -1529,7 +1532,6 @@ div#upper_section div.news form {
 .navigate_section ul li {
     float: left;
     padding: 0 0.5em 0 0;
-    font-size: 0.95em;
 }
 
 .navigate_section ul li a {
@@ -1824,6 +1826,7 @@ div.table_frame .table_list {
 }
 
 #moderationbuttons {
+    padding: 10px 0;
 }
 
 /* Events */
@@ -2012,9 +2015,10 @@ div.quickbuttons_wrap {
 }
 
 ul.quickbuttons {
-    margin: 0.9em 11px 0 0;
-    clear: right;
-    float: right;
+    position: absolute;
+    display: inline-block;
+    top: 15px;
+    right: 5px;
     text-align: right;
     font: bold 0.85em arial, sans-serif;
 }
@@ -2246,6 +2250,21 @@ ul.post_options li {
 #bbcBox_message div img {
     margin: 0 1px 0 0;
     vertical-align: top;
+    background-image: none;
+}
+
+#bbcBox_message div img {
+    margin: 0 1px 0 0;
+    vertical-align: top;
+    background-image: none !important;
+}
+
+#bbcBox_message div img:hover {
+    background: rgba(153, 3, 196, .6);
+}
+
+#bbcBox_message div img:active {
+    background: rgba(153, 3, 196, .8);
 }
 
 #bbcBox_message select {
@@ -2624,19 +2643,12 @@ tr.titlebg td {
     list-style: none;
 }
 
-#left_admsection {
-    width: 160px;
-    float: left;
-    padding-right: 10px;
-}
-
 .adm_section h4.titlebg {
     font-size: 95%;
     margin-bottom: 5px;
 }
 
 #main_container {
-    position: relative;
 }
 
 .left_admmenu li {
@@ -2645,12 +2657,6 @@ tr.titlebg td {
 
 .left_admmenu {
     margin-bottom: 0.5em;
-}
-
-#main_admsection {
-    position: relative;
-    left: 0;
-    right: 0;
 }
 
 tr.windowbg td, tr.windowbg2 td, tr.approvebg td, tr.highlight2 td {
@@ -3562,7 +3568,7 @@ img.icon, .sp_article_icon img, .sp_recent_icon img, .messageicon img, .icon1 im
     margin-bottom: 5px;
 }
 
-.sp_recent_icon img, .messageicon img, .icon1 img, .icon2 img, #topic_icons img {
+.sp_recent_icon img, .messageicon img, .icon1 img, .icon2 img, #topic_icons img, .icon img {
     width: 40px;
     height: 40px;
     background: rgba(153, 3, 196, 0.6);
@@ -3596,7 +3602,7 @@ img.icon, .sp_article_icon img, .sp_recent_icon img, .messageicon img, .icon1 im
 
 }
 
-.messageicon, .sp_recent_icon, .icon1, .icon2 {
+.messageicon, .sp_recent_icon {
     display: inline-block;
     float: left;
 }
